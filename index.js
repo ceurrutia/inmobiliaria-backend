@@ -27,7 +27,7 @@ app.use(cors({
 
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 
 

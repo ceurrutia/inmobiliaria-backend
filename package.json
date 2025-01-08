@@ -4,8 +4,8 @@
   "description": "Inmobiliaria API",
   "main": "index.js",
   "scripts": {
-    "dev": "index.js",
-    "start": "index.js",
+    "dev": "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Urrutia",

@@ -1,12 +1,14 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "index.js", "use": "@vercel/node" },
-      { "src": "api/**/*.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/api/$1.js" },
-      { "src": "/(.*)", "dest": "/index.js" }
-    ]
-} 
+  "version": 2,
+  "builds": [
+    { "src": "index.js", "use": "@vercel/node" },
+    { "src": "routes/**/*.js", "use": "@vercel/node" },
+    { "src": "controllers/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/properties", "dest": "/routes/propertyRoutes.js" },
+    { "src": "/api/users", "dest": "/routes/userRoutes.js" },
+    { "src": "/(.*)", "dest": "/index.js" }
+  ]
+}
   

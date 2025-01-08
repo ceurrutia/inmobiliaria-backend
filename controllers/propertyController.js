@@ -1,8 +1,8 @@
-const Property = require('../models/Property');
+const UserProperty = require('../models/UserProperty');
 
 exports.getAllProperties = async (req, res) => {
   try {
-    const properties = await Property.find();
+    const properties = await UserProperty.find();
     res.json(properties);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -11,7 +11,7 @@ exports.getAllProperties = async (req, res) => {
 
 exports.createProperty = async (req, res) => {
   try {
-    const property = new Property(req.body);
+    const property = new UserProperty(req.body);
     await property.save();
     res.status(201).json(property);
   } catch (err) {
@@ -21,7 +21,7 @@ exports.createProperty = async (req, res) => {
 
 exports.getPropertyById = async (req, res) => {
   try {
-    const property = await Property.findById(req.params.id);
+    const property = await UserProperty.findById(req.params.id);
     if (!property) return res.status(404).json({ error: 'Property not found' });
     res.json(property);
   } catch (err) {
@@ -31,7 +31,7 @@ exports.getPropertyById = async (req, res) => {
 
 exports.updateProperty = async (req, res) => {
   try {
-    const property = await Property.findByIdAndUpdate(req.params.id, req.body, {
+    const property = await UserProperty.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -44,7 +44,7 @@ exports.updateProperty = async (req, res) => {
 
 exports.deleteProperty = async (req, res) => {
   try {
-    const property = await Property.findByIdAndDelete(req.params.id);
+    const property = await UserProperty.findByIdAndDelete(req.params.id);
     if (!property) return res.status(404).json({ error: 'Property not found' });
     res.json({ message: 'Property deleted successfully' });
   } catch (err) {
